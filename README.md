@@ -1,0 +1,46 @@
+# eslint-plugin-nonoptimal-innerhtml
+
+Don&#39;t use innerHTML inside loops.
+
+## Installation
+
+You'll first need to install [ESLint](https://eslint.org/):
+
+```sh
+npm i eslint --save-dev
+```
+
+Next, install `eslint-plugin-nonoptimal-innerhtml`:
+
+```sh
+npm install eslint-plugin-nonoptimal-innerhtml --save-dev
+```
+
+## Usage
+
+Add `nonoptimal-innerhtml` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+
+```json
+{
+    "plugins": [
+        "nonoptimal-innerhtml"
+    ]
+}
+```
+
+
+Then configure the rules you want to use under the rules section.
+
+```json
+{
+    "rules": {
+        "nonoptimal-innerhtml/rule-name": 2
+    }
+}
+```
+
+## Supported Rules
+
+* Fill in provided rules here
+
+
