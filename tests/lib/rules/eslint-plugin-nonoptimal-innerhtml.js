@@ -4,27 +4,65 @@
  */
 "use strict";
 
-//------------------------------------------------------------------------------
-// Requirements
-//------------------------------------------------------------------------------
-
 const rule = require("../../../lib/rules/nonoptimal-innerhtml"),
   RuleTester = require("eslint").RuleTester;
 
-//------------------------------------------------------------------------------
-// Tests
-//------------------------------------------------------------------------------
-
-const ruleTester = new RuleTester();
+const ruleTester = new RuleTester({ parserOptions: { ecmaVersion: 6 } });
 ruleTester.run("nonoptimal-innerhtml", rule, {
   valid: [
-    // give me some code that won't trigger a warning
+    {
+      code: "document.innerHTML += '<h1>Foobar</h1>';",
+    },
+    {
+      code: "function optimalFunction() { document.innerHTML += '<h1>Foobar</h1>'; }",
+    },
   ],
 
   invalid: [
     {
+      code: "while (something) { document.innerHTML += '<h1>Foobar</h1>'; }",
+      errors: [
+        {
+          message:
+            "Setting innerHTML inside a loop is nonoptimal, try using `createElement` instead",
+        },
+      ],
+    },
+    {
       code: "for (let i = 0; i < 10; i++) { document.innerHTML += '<h1>Foobar</h1>'; }",
-      errors: [{ message: "Fill me in.", type: "Me too" }],
+      errors: [
+        {
+          message:
+            "Setting innerHTML inside a loop is nonoptimal, try using `createElement` instead",
+        },
+      ],
+    },
+    {
+      code: `for (let i = 0; i < [1, 2, 3, 4].length; i++) {
+          function test() {
+            containerRoot.innerHTML = containerRoot.innerHTML + 'nonoptimal code :('
+          }
+          test();
+        }
+      `,
+      errors: [
+        {
+          message:
+            "Setting innerHTML inside a loop is nonoptimal, try using `createElement` instead",
+        },
+      ],
+    },
+    {
+      code: `[1, 2, 3, 4].forEach((element) => {
+          containerRoot.innerHTML += 'also nonoptimal code :('
+        });
+      `,
+      errors: [
+        {
+          message:
+            "Setting innerHTML inside a loop is nonoptimal, try using `createElement` instead",
+        },
+      ],
     },
   ],
 });
