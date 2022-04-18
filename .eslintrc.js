@@ -6,14 +6,14 @@ module.exports = {
     "eslint:recommended",
     "plugin:eslint-plugin/recommended",
     "plugin:node/recommended",
-    "prettier"
+    "prettier",
   ],
   env: {
     node: true,
   },
   plugins: ["prettier"],
   rules: {
-    "prettier/prettier": ["error"]
+    "prettier/prettier": ["error"],
   },
   overrides: [
     {
