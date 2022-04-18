@@ -11,15 +11,18 @@
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "mocha tests --recursive"
+    "test": "mocha tests --recursive",
+    "format": "prettier --write lib"
   },
   "dependencies": {
     "requireindex": "^1.2.0"
   },
   "devDependencies": {
     "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-eslint-plugin": "^4.0.1",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "mocha": "^9.1.3"
   },
   "engines": {
