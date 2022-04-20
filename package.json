@@ -8,6 +8,10 @@
     "eslint-plugin"
   ],
   "author": "Andrés Quilodrán",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oxfist/eslint-plugin-nonoptimal-innerhtml"
+  },
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint .",
