@@ -1,6 +1,6 @@
 # eslint-plugin-nonoptimal-innerhtml
 
-Don&#39;t use innerHTML inside loops.
+Don't use `innerHTML` inside loops.
 
 ## Installation
 
@@ -22,25 +22,20 @@ Add `nonoptimal-innerhtml` to the plugins section of your `.eslintrc` configurat
 
 ```json
 {
-    "plugins": [
-        "nonoptimal-innerhtml"
-    ]
+  "plugins": ["nonoptimal-innerhtml"]
 }
 ```
-
 
 Then configure the rules you want to use under the rules section.
 
 ```json
 {
-    "rules": {
-        "nonoptimal-innerhtml/rule-name": 2
-    }
+  "rules": {
+    "nonoptimal-innerhtml/nonoptimal-innerhtml": "warn"
+  }
 }
 ```
 
 ## Supported Rules
 
-* Fill in provided rules here
-
-
+- Fill in provided rules here
