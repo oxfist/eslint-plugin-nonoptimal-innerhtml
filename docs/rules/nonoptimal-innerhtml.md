@@ -5,11 +5,13 @@ Using the `innerHTML` property to set or add to the content of a `Node` inside a
 1. the loop is long enough, or
 2. the HTML you're inserting is large
 
-If both happen in conjunction, the performance impact will be bigger.
+If both happen in conjunction, the performance impact will be even bigger.
 
 The reason for this is that, since `innerHTML` receives a simple string, it has to be parsed and validated as correct HTML before appearing in the DOM.
 
-Parsing gets slower as the content being parsed grows. Also, doing parsing operations inside a loop will inevitably take more time as the loop gets longer. Hence the the risk of poor performance when using the `innerHTML` property directly.
+Parsing gets slower as the content being parsed grows. Also, doing parsing operations inside a loop will inevitably take more time as the loop gets longer. Hence the risk of poor performance when using the `innerHTML` property directly.
+
+In general, instead of `innerHTML`, use `createElement()` followed by either `appendChild()` or `replaceChild()`/`replaceChildren()`.
 
 ## Rule Details
 
@@ -70,6 +72,6 @@ while (something) {
 
 ## Further Reading
 
-Read about [the algorithm used when accessing or setting the `innerHTML`](https://dev.w3.org/html5/spec-LC/apis-in-html-documents.html#innerhtml) property of a `Node` is documented by the W3C.
+Read about [the algorithm used when accessing or setting the `innerHTML`](https://dev.w3.org/html5/spec-LC/apis-in-html-documents.html#innerhtml) property of a `Node` as documented by the W3C.
 
 You can also read about the [security concerns when using `innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML#security_considerations).
