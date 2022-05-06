@@ -1,6 +1,6 @@
 # eslint-plugin-nonoptimal-innerhtml
 
-Don't use `innerHTML` inside loops.
+Don't use `innerHTML` inside loops or you'll have a slow website. See the [reasoning for this rule](./docs/rules).
 
 ## Installation
 
